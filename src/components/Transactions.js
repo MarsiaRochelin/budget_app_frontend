@@ -31,9 +31,12 @@ function Transactions() {
   );
 
   return (
-    <div>
+    <div className="transactions">
       <p>Bank Account Total:{bankTotal}</p>
       <ul>{transactionList}</ul>
+      <Link to={"/"}>
+        <button>Back</button>
+      </Link>
     </div>
   );
 }
