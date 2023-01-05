@@ -8,13 +8,15 @@ function Transactions() {
   useEffect(() => {
     axios
       .get(`${API}/transactions`)
-      .then((res) => setTransactions(res.data))
+      .then((res) => {
+        setTransactions(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
 
-  let transactionList = transactions.map((transaction) => {
+  let transactionList = transactions.map((transaction, id) => {
     return (
-      <li>
+      <li key={id}>
         {transaction.date}
         {transaction.item_name}
         {transaction.amount}
@@ -22,8 +24,14 @@ function Transactions() {
     );
   });
 
+  const bankTotal = transactions.reduce(
+    (acc, transaction) => acc + transaction.amount,
+    0
+  );
+
   return (
     <div>
+      <p>Bank Account Total:{bankTotal}</p>
       <ul>{transactionList}</ul>
     </div>
   );
