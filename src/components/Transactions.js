@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -14,11 +15,11 @@ function Transactions() {
       .catch((err) => console.log(err));
   }, []);
 
-  let transactionList = transactions.map((transaction, id) => {
+  const transactionList = transactions.map((transaction, index) => {
     return (
-      <li key={id}>
+      <li key={index}>
         {transaction.date}
-        {transaction.item_name}
+        <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>
         {transaction.amount}
       </li>
     );
