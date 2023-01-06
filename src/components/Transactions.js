@@ -15,6 +15,12 @@ function Transactions() {
       .catch((err) => console.log(err));
   }, []);
 
+  let array = [];
+  let allCharges = transactions.map((transaction) =>
+    array.push(+transaction.amount)
+  );
+  console.log(allCharges);
+
   const transactionList = transactions.map((transaction, index) => {
     return (
       <li key={index}>
@@ -25,11 +31,8 @@ function Transactions() {
     );
   });
 
-  const bankTotal = transactions.reduce(
-    (acc, transaction) => acc + transaction.amount,
-    0
-  );
-
+  const bankTotal = array.reduce((a, b) => a + b, 0);
+  console.log(bankTotal);
   return (
     <div className="transactions">
       <p>Bank Account Total:{bankTotal}</p>

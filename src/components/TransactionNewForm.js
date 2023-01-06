@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -18,8 +18,7 @@ function TransactionNewForm() {
 
     axios
       .post(`${API}/transactions`, newTransaction)
-      .then((res) => {
-        setNewTransaction(res.data);
+      .then(() => {
         navigate("/transactions");
       })
       .catch((err) => console.log(err));
@@ -29,15 +28,6 @@ function TransactionNewForm() {
     setNewTransaction({ ...newTransaction, [e.target.id]: e.target.value });
   }
 
-  useEffect(() => {
-    axios
-      .post(`${API}/transactions`)
-      .then((res) => {
-        setNewTransaction(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
   return (
     <div className="newForm">
       <form onSubmit={handleSubmit}>
@@ -46,7 +36,8 @@ function TransactionNewForm() {
           type="text"
           value={newTransaction.item_name}
           onChange={handleTextChange}
-          id="item_Name"
+          id="item_name"
+          required
         />
         <label htmlFor="amount">Amount:</label>
         <input
@@ -54,6 +45,7 @@ function TransactionNewForm() {
           value={newTransaction.amount}
           onChange={handleTextChange}
           id="amount"
+          required
         />
         <label htmlFor="date">Date:</label>
         <input
@@ -61,6 +53,7 @@ function TransactionNewForm() {
           value={newTransaction.date}
           onChange={handleTextChange}
           id="date"
+          required
         />
         <label htmlFor="from">From:</label>
         <input
@@ -68,6 +61,7 @@ function TransactionNewForm() {
           value={newTransaction.from}
           onChange={handleTextChange}
           id="from"
+          required
         />
         <label htmlFor="category">Category:</label>
         <input
@@ -75,9 +69,13 @@ function TransactionNewForm() {
           value={newTransaction.category}
           onChange={handleTextChange}
           id="category"
+          required
         />
-        <input type="submit"></input>
+        <input type="submit" />
       </form>
+      <Link to={"/transactions"}>
+        <button>Back</button>
+      </Link>
     </div>
   );
 }
