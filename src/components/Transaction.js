@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
 function Transaction() {
   const [transaction, setTransaction] = useState([]);
   const { index } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -13,6 +14,15 @@ function Transaction() {
       .then((res) => setTransaction(res.data))
       .catch((err) => console.log(err));
   }, [index]);
+
+  const handleDelete = () => {
+    axios
+      .delete(`${API}/transactions/${index}`)
+      .then(() => {
+        navigate("/transactions");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="transaction">
@@ -27,7 +37,7 @@ function Transaction() {
       <Link to={`/transactions/${index}/edit`}>
         <button>Edit</button>
       </Link>
-      <button>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }

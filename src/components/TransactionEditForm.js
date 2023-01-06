@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-function TransactionNewForm() {
+function TransactionEditForm() {
+  const { index } = useParams();
   const navigate = useNavigate();
-  const [newTransaction, setNewTransaction] = useState({
+  const [editTransaction, setEditTransaction] = useState({
     item_name: "",
     amount: 0,
     date: "",
@@ -13,28 +14,35 @@ function TransactionNewForm() {
     category: "",
   });
 
+  useEffect(() => {
+    axios
+      .get(`${API}/transactions/${index}`)
+      .then((res) => setEditTransaction(res.data))
+      .catch((err) => console.log(err));
+  }, [index, navigate]);
+
   const handleTextChange = (e) => {
-    setNewTransaction({ ...newTransaction, [e.target.id]: e.target.value });
+    setEditTransaction({ ...editTransaction, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     axios
-      .post(`${API}/transactions`, newTransaction)
-      .then(() => {
-        navigate("/transactions");
+      .put(`${API}/transactions/${index}`, editTransaction)
+      .then((res) => {
+        setEditTransaction(res.data);
+        navigate(`/transaction/${index}`);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <div className="newForm">
+    <div className="editForm">
       <form onSubmit={handleSubmit}>
         <label htmlFor="item_name">Item Name:</label>
         <input
           type="text"
-          value={newTransaction.item_name}
+          value={editTransaction.item_name}
           onChange={handleTextChange}
           id="item_name"
           required
@@ -42,7 +50,7 @@ function TransactionNewForm() {
         <label htmlFor="amount">Amount:</label>
         <input
           type="number"
-          value={newTransaction.amount}
+          value={editTransaction.amount}
           onChange={handleTextChange}
           id="amount"
           required
@@ -50,7 +58,7 @@ function TransactionNewForm() {
         <label htmlFor="date">Date:</label>
         <input
           type="text"
-          value={newTransaction.date}
+          value={editTransaction.date}
           onChange={handleTextChange}
           id="date"
           required
@@ -58,7 +66,7 @@ function TransactionNewForm() {
         <label htmlFor="from">From:</label>
         <input
           type="text"
-          value={newTransaction.from}
+          value={editTransaction.from}
           onChange={handleTextChange}
           id="from"
           required
@@ -66,7 +74,7 @@ function TransactionNewForm() {
         <label htmlFor="category">Category:</label>
         <input
           type="text"
-          value={newTransaction.category}
+          value={editTransaction.category}
           onChange={handleTextChange}
           id="category"
           required
@@ -80,4 +88,4 @@ function TransactionNewForm() {
   );
 }
 
-export default TransactionNewForm;
+export default TransactionEditForm;

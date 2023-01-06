@@ -3,7 +3,9 @@ import React from "react";
 function Home() {
   return (
     <div className="home">
-      <p>Welcome, to the budget app!</p>
+      <h1>
+        <>👋🏾</>Welcome, to the budget app<>‼️</>
+      </h1>
     </div>
   );
 }
