@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-function Transaction() {
+export default function Transaction() {
   const [transaction, setTransaction] = useState([]);
   const { index } = useParams();
   const navigate = useNavigate();
@@ -41,5 +41,3 @@ function Transaction() {
     </div>
   );
 }
-
-export default Transaction;

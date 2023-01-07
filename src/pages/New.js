@@ -1,7 +1,6 @@
-import React from "react";
 import TransactionNewForm from "../components/TransactionNewForm";
 
-function New() {
+export default function New() {
   return (
     <div className="new">
       <h1>New</h1>
@@ -9,5 +8,3 @@ function New() {
     </div>
   );
 }
-
-export default New;

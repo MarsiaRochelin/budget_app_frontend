@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-function TransactionEditForm() {
+export default function TransactionEditForm() {
   const { index } = useParams();
   const navigate = useNavigate();
   const [editTransaction, setEditTransaction] = useState({
@@ -87,5 +87,3 @@ function TransactionEditForm() {
     </div>
   );
 }
-
-export default TransactionEditForm;

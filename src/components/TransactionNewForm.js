@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
-function TransactionNewForm() {
+export default function TransactionNewForm() {
   const navigate = useNavigate();
   const [newTransaction, setNewTransaction] = useState({
     item_name: "",
@@ -79,5 +79,3 @@ function TransactionNewForm() {
     </div>
   );
 }
-
-export default TransactionNewForm;

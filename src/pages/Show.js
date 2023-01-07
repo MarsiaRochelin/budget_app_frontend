@@ -1,7 +1,6 @@
-import React from "react";
 import Transaction from "../components/Transaction";
 
-function Show() {
+export default function Show() {
   return (
     <div className="show">
       <h1>Show</h1>
@@ -9,5 +8,3 @@ function Show() {
     </div>
   );
 }
-
-export default Show;

@@ -1,7 +1,4 @@
 import React from "react";
-
-function FourOFour() {
+export default function FourOFour() {
   return <div className="error"></div>;
 }
-
-export default FourOFour;

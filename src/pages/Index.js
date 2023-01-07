@@ -1,7 +1,6 @@
-import React from "react";
 import Transactions from "../components/Transactions";
 
-function index() {
+export default function index() {
   return (
     <div className="index">
       <h1>Index</h1>
@@ -9,5 +8,3 @@ function index() {
     </div>
   );
 }
-
-export default index;
