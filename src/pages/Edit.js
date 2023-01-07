@@ -4,7 +4,7 @@ import TransactionEditForm from "../components/TransactionEditForm";
 export default function Edit() {
   return (
     <div className="edit">
-      <h1>Edit Form</h1>
+      <h1>Edit</h1>
       <TransactionEditForm />
     </div>
   );

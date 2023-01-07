@@ -24,8 +24,8 @@ export default function Transactions() {
     return (
       <li key={index}>
         {transaction.date}
-        <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>
-        {transaction.amount}
+        <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>$
+        {transaction.amount.toFixed(2)}
       </li>
     );
   });
@@ -34,7 +34,7 @@ export default function Transactions() {
 
   return (
     <div className="transactions">
-      <p>Bank Account Total:{bankTotal}</p>
+      <p>Bank Account Total: ${bankTotal.toFixed(2)}</p>
       <ul>{transactionList}</ul>
       <Link to={"/"}>
         <button>Back</button>
