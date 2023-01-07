@@ -1,7 +1,7 @@
-// DEPENDENCIES
+// DEPENDENCIES //
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// PAGES
+// PAGES //
 import Edit from "./pages/Edit";
 import FourOFour from "./pages/FourOFour.js";
 import Home from "./pages/Home";
@@ -9,7 +9,7 @@ import Index from "./pages/Index";
 import New from "./pages/New";
 import Show from "./pages/Show";
 
-// COMPONENTS
+// COMPONENTS //
 import NavBar from "./components/NavBar";
 
 function App() {

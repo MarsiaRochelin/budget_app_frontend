@@ -1,3 +1,4 @@
+// COMPONENTS //
 import Transaction from "../components/Transaction";
 
 export default function Show() {

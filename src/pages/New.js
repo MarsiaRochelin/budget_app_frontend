@@ -1,3 +1,4 @@
+// COMPONENTS //
 import TransactionNewForm from "../components/TransactionNewForm";
 
 export default function New() {

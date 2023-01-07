@@ -1,3 +1,4 @@
+// COMPONENTS //
 import TransactionEditForm from "../components/TransactionEditForm";
 
 export default function Edit() {
