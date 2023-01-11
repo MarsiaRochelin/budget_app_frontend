@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import transactions from "../transactions.css";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -15,29 +16,47 @@ export default function Transactions() {
       .catch((err) => console.log(err));
   }, []);
 
+  const transactionList = transactions.map((transaction, index) => {
+    return (
+      <u>
+        <li key={index}>
+          <span className="transactionDetails">
+            {transaction.date}
+            <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>$
+            {transaction.amount}
+          </span>
+        </li>
+      </u>
+    );
+  });
+
   let array = [];
   let allCharges = transactions.map((transaction) =>
     array.push(+transaction.amount)
   );
-
-  const transactionList = transactions.map((transaction, index) => {
-    return (
-      <li key={index}>
-        {transaction.date}
-        <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>$
-        {transaction.amount.toFixed(2)}
-      </li>
-    );
-  });
-
   const bankTotal = array.reduce((a, b) => a + b, 0);
+
+  const heatMap = (total) => {
+    if (total >= 1000) {
+      return "green";
+    } else if (total < 0) {
+      return "red";
+    } else {
+      return "ghostWhite";
+    }
+  };
 
   return (
     <div className="transactions">
-      <p>Bank Account Total: ${bankTotal.toFixed(2)}</p>
-      <ul>{transactionList}</ul>
+      <p className="bankTotal">
+        Bank Account Total:{" "}
+        <span style={{ color: heatMap(bankTotal) }}>
+          ${bankTotal.toFixed(2)}
+        </span>
+      </p>
+      <ul className="list">{transactionList}</ul>
       <Link to={"/"}>
-        <button>Back</button>
+        <button className="back">Back</button>
       </Link>
     </div>
   );

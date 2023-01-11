@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import transactionNewForm from "../transactionNewForm.css";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -30,7 +31,7 @@ export default function TransactionNewForm() {
 
   return (
     <div className="newForm">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="new_form">
         <label htmlFor="item_name">Item Name:</label>
         <input
           type="text"
@@ -39,6 +40,7 @@ export default function TransactionNewForm() {
           id="item_name"
           required
         />
+        <br />
         <label htmlFor="amount">Amount:</label>
         <input
           type="number"
@@ -47,6 +49,7 @@ export default function TransactionNewForm() {
           id="amount"
           required
         />
+        <br />
         <label htmlFor="date">Date:</label>
         <input
           type="text"
@@ -55,6 +58,7 @@ export default function TransactionNewForm() {
           id="date"
           required
         />
+        <br />
         <label htmlFor="from">From:</label>
         <input
           type="text"
@@ -63,6 +67,7 @@ export default function TransactionNewForm() {
           id="from"
           required
         />
+        <br />
         <label htmlFor="category">Category:</label>
         <input
           type="text"
@@ -71,11 +76,12 @@ export default function TransactionNewForm() {
           id="category"
           required
         />
-        <input type="submit" />
+        <br />
+        <input type="submit" className="submit" />
+        <Link to={"/transactions"}>
+          <button className="backButton">Back</button>
+        </Link>
       </form>
-      <Link to={"/transactions"}>
-        <button>Back</button>
-      </Link>
     </div>
   );
 }

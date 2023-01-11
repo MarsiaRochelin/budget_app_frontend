@@ -1,0 +1,24 @@
+.bankTotal {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.list {
+  list-style: none;
+}
+
+.transactionDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+}
+
+.back {
+  background-color: rgb(40, 134, 40);
+  outline: 2px solid white;
+  margin: 10px;
+}

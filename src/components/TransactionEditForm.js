@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import transactionEditForm from "../transactionEditForm.css";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -38,7 +39,7 @@ export default function TransactionEditForm() {
 
   return (
     <div className="editForm">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="edit_form">
         <label htmlFor="item_name">Item Name:</label>
         <input
           type="text"
@@ -47,6 +48,7 @@ export default function TransactionEditForm() {
           id="item_name"
           required
         />
+        <br />
         <label htmlFor="amount">Amount:</label>
         <input
           type="number"
@@ -55,6 +57,7 @@ export default function TransactionEditForm() {
           id="amount"
           required
         />
+        <br />
         <label htmlFor="date">Date:</label>
         <input
           type="text"
@@ -63,6 +66,7 @@ export default function TransactionEditForm() {
           id="date"
           required
         />
+        <br />
         <label htmlFor="from">From:</label>
         <input
           type="text"
@@ -71,6 +75,7 @@ export default function TransactionEditForm() {
           id="from"
           required
         />
+        <br />
         <label htmlFor="category">Category:</label>
         <input
           type="text"
@@ -79,10 +84,11 @@ export default function TransactionEditForm() {
           id="category"
           required
         />
-        <input type="submit" />
+        <br />
+        <input type="submit" className="submit" />
       </form>
       <Link to={"/transactions"}>
-        <button>Back</button>
+        <button className="editButton">Back</button>
       </Link>
     </div>
   );

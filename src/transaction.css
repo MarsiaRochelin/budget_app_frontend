@@ -1,0 +1,11 @@
+.backButton,
+.editButton,
+.deleteButton {
+  background-color: rgb(40, 134, 40);
+  outline: 2px solid white;
+  margin: 15px;
+}
+
+.amount {
+  font-weight: bold;
+}

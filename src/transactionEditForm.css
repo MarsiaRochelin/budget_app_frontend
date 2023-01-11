@@ -1,0 +1,23 @@
+.edit_form {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+label {
+  grid-column: 1 / 2;
+}
+
+#item_name,
+#amount,
+#date,
+#from,
+#category {
+  grid-column: 2 / 3;
+}
+
+.submit,
+.backbutton {
+  background-color: rgb(40, 134, 40);
+  outline: 2px solid white;
+  margin: 15px;
+}

@@ -1,5 +1,6 @@
 // DEPENDENCIES //
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import app from "./App.css";
 
 // PAGES //
 import Edit from "./pages/Edit";
@@ -17,7 +18,7 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        <main>
+        <main className="main">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/transactions" element={<Index />} />

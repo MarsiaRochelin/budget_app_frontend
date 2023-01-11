@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import transaction from "../transaction.css";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL;
 
@@ -26,18 +27,22 @@ export default function Transaction() {
 
   return (
     <div className="transaction">
-      <p>{transaction?.item_name}</p>
-      <p>{transaction?.amount}</p>
-      <p>{transaction?.date}</p>
-      <p>{transaction?.from}</p>
-      <p>{transaction?.category}</p>
+      <p className="itemName">{transaction?.item_name}</p>
+      <p className="amount">${transaction?.amount}</p>
+      <p className="date">{transaction?.date}</p>
+      <p className="from">{transaction?.from}</p>
+      <p className="category">{transaction?.category}</p>
       <Link to={"/transactions"}>
-        <button>Back</button>
+        <button className="backButton">Back</button>
       </Link>
+      <span> &nbsp; &nbsp; &nbsp;</span>
       <Link to={`/transactions/${index}/edit`}>
-        <button>Edit</button>
+        <button className="editButton">Edit</button>
       </Link>
-      <button onClick={handleDelete}>Delete</button>
+      <span> &nbsp; &nbsp; &nbsp;</span>
+      <button onClick={handleDelete} className="deleteButton">
+        Delete
+      </button>
     </div>
   );
 }
