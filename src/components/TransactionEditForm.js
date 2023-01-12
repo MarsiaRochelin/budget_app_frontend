@@ -86,10 +86,10 @@ export default function TransactionEditForm() {
         />
         <br />
         <input type="submit" className="submit" />
+        <Link to={"/transactions"}>
+          <button className="editButton">Back</button>
+        </Link>
       </form>
-      <Link to={"/transactions"}>
-        <button className="editButton">Back</button>
-      </Link>
     </div>
   );
 }

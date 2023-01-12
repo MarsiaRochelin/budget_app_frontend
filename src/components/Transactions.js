@@ -18,15 +18,13 @@ export default function Transactions() {
 
   const transactionList = transactions.map((transaction, index) => {
     return (
-      <u>
-        <li key={index}>
-          <span className="transactionDetails">
-            {transaction.date}
-            <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>$
-            {transaction.amount}
-          </span>
-        </li>
-      </u>
+      <li key={index}>
+        <span className="transactionDetails">
+          {transaction.date}
+          <Link to={`/transactions/${index}`}>{transaction.item_name}</Link>$
+          {transaction.amount}
+        </span>
+      </li>
     );
   });
 
