@@ -15,6 +15,7 @@ label {
   grid-column: 2 / 3;
 }
 
+/* make submit button smaller */
 .submit,
 .backbutton {
   background-color: rgb(40, 134, 40);

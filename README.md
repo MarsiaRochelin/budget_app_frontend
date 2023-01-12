@@ -1,6 +1,6 @@
-Backend Repo:
-Backend Deployed link: https://budget-app-backend-p859.onrender.com/
-Frontend Deployed
+Backend Repo: https://github.com/MarsiaRochelin/budget_app_backend
+Backend Deployed: https://budget-app-backend-p859.onrender.com/
+Frontend Deployed:
 
 Front-End
 For the front-end to be complete, the following must be true:

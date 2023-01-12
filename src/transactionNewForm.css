@@ -15,13 +15,11 @@ label {
   grid-column: 2 / 3;
 }
 
-.submit {
-  background-color: rgb(40, 134, 40);
-  outline: 2px solid white;
-}
-
-.backButton {
-  background-color: rgb(40, 134, 40);
-  outline: 2px solid white;
+/* make submit button smaller */
+.submit,
+.backbutton {
   margin: 15px;
+  outline: 2px solid white;
+  background-color: rgb(40, 134, 40);
+  color: white;
 }
