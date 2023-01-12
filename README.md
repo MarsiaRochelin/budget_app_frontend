@@ -1,6 +1,6 @@
 Backend Repo: https://github.com/MarsiaRochelin/budget_app_backend
 Backend Deployed: https://budget-app-backend-p859.onrender.com/
-Frontend Deployed:
+Frontend Deployed: https://63bf570305e1995e20939efa--tiny-elf-887744.netlify.app/
 
 Front-End
 For the front-end to be complete, the following must be true:
